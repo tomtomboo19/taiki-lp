@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>身体の関係から追われる女性に</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C4856A;
+    --rose-light: #E8C4B4;
+    --rose-pale: #F5E8E0;
+    --cream: #FAF6F1;
+    --warm-white: #FFFDF9;
+    --ink: #2C1F1A;
+    --ink-soft: #5C4A42;
+    --gold: #B8956A;
+    --gold-light: #D4B896;
+    --sage: #8A9E8C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+    background: var(--warm-white);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(196,133,106,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 10% 80%, rgba(184,149,106,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(245,232,224,0.6) 0%, transparent 70%);
+  }
+
+  /* Decorative petal shapes */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    background: rgba(196,133,106,0.06);
+    top: -100px;
+    right: -150px;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%;
+    background: rgba(184,149,106,0.05);
+    bottom: -80px;
+    left: -100px;
+    animation: float 15s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(20px, -15px) rotate(2deg); }
+    66% { transform: translate(-10px, 10px) rotate(-1deg); }
+  }
+
+  nav {
+    position: relative;
+    z-index: 10;
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--rose);
+  }
+
+  .nav-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, var(--rose-light), transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px 60px;
+    max-width: 900px;
+    animation: fadeInUp 1.2s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--rose);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 200;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(15px, 2.5vw, 20px);
+    line-height: 2;
+    color: var(--ink-soft);
+    margin-top: 24px;
+    max-width: 560px;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-cta {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 48px;
+    background: var(--rose);
+    color: white;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-secondary {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rose-light);
+    padding-bottom: 4px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .btn-secondary:hover { color: var(--rose); border-color: var(--rose); }
+
+  .hero-decoration {
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(196,133,106,0.06);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .scroll-indicator {
+    position: relative;
+    z-index: 5;
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold-light), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  /* ── PAIN SECTION ── */
+  .pain {
+    background: var(--ink);
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .pain-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 90% 50%, rgba(196,133,106,0.08) 0%, transparent 60%);
+  }
+
+  .pain .section-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  .pain-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 200;
+    color: var(--warm-white);
+    line-height: 1.7;
+    margin-bottom: 60px;
+    letter-spacing: 0.05em;
+  }
+
+  .pain-title strong {
+    color: var(--rose-light);
+    font-weight: 300;
+  }
+
+  .pain-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pain-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(196,133,106,0.15);
+    padding: 40px 36px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pain-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--rose);
+    transition: height 0.4s ease;
+  }
+
+  .pain-item:hover::before { height: 100%; }
+  .pain-item:hover { background: rgba(196,133,106,0.06); }
+
+  .pain-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(196,133,106,0.2);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .pain-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PROMISE SECTION ── */
+  .promise {
+    background: var(--warm-white);
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .promise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .promise-visual {
+    position: relative;
+    height: 500px;
+  }
+
+  .promise-circle-1 {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 60% 40% 50% 50% / 50% 50% 50% 50%;
+    background: linear-gradient(135deg, rgba(196,133,106,0.15), rgba(184,149,106,0.08));
+    border: 1px solid rgba(196,133,106,0.2);
+    top: 60px;
+    left: 0;
+    animation: morphShape 10s ease-in-out infinite;
+  }
+
+  .promise-circle-2 {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+    background: linear-gradient(225deg, rgba(184,149,106,0.12), rgba(196,133,106,0.06));
+    border: 1px solid rgba(184,149,106,0.15);
+    bottom: 20px;
+    right: 20px;
+    animation: morphShape 12s ease-in-out infinite reverse;
+  }
+
+  @keyframes morphShape {
+    0%, 100% { border-radius: 60% 40% 50% 50% / 50% 50% 50% 50%; }
+    25% { border-radius: 50% 60% 40% 60% / 40% 60% 50% 40%; }
+    50% { border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; }
+    75% { border-radius: 60% 40% 40% 60% / 50% 60% 40% 60%; }
+  }
+
+  .promise-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+  }
+
+  .promise-center-text .big-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--rose);
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  .promise-content .label { color: var(--rose); }
+
+  .promise-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 200;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: 0.06em;
+  }
+
+  .promise-body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 2.2;
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    background: var(--rose-pale);
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .features-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .features-header .label {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .features-header .label::before,
+  .features-header .label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  .features-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 3.5vw, 44px);
+    font-weight: 200;
+    color: var(--ink);
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 48px 36px;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--rose), var(--gold));
+    transition: width 0.5s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(196,133,106,0.1);
+  }
+
+  .feature-card:hover::after { width: 100%; }
+
+  .feature-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: var(--rose-light);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+
+  .feature-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+
+  .feature-desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 2;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--warm-white);
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .testimonials-header {
+    margin-bottom: 80px;
+  }
+
+  .testimonials-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 3.5vw, 44px);
+    font-weight: 200;
+    color: var(--ink);
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    padding: 40px 36px;
+    border: 1px solid var(--rose-light);
+    position: relative;
+    background: var(--cream);
+    transition: all 0.4s ease;
+  }
+
+  .testimonial-card:hover {
+    background: white;
+    border-color: var(--rose);
+    box-shadow: 0 20px 50px rgba(196,133,106,0.08);
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    color: var(--rose-light);
+    line-height: 0.8;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: white;
+  }
+
+  .testimonial-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+
+  .testimonial-age {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: var(--rose);
+    letter-spacing: 0.2em;
+  }
+
+  /* ── PROFILE ── */
+  .profile {
+    background: var(--ink);
+    padding: 140px 0;
+    overflow: hidden;
+  }
+
+  .profile-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 0% 50%, rgba(196,133,106,0.08) 0%, transparent 60%);
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .profile-image-area {
+    position: relative;
+  }
+
+  .profile-frame {
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, rgba(196,133,106,0.15), rgba(184,149,106,0.08));
+    border: 1px solid rgba(196,133,106,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-frame-inner {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: rgba(196,133,106,0.2);
+    font-style: italic;
+  }
+
+  .profile-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(196,133,106,0.3);
+  }
+
+  .profile-content .label { color: var(--rose); }
+
+  .profile-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .profile-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    font-weight: 200;
+    color: var(--rose-light);
+    letter-spacing: 0.15em;
+    margin-bottom: 36px;
+  }
+
+  .profile-bio {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 2.4;
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
+  }
+
+  .profile-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(196,133,106,0.2);
+  }
+
+  .stat-item {}
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--rose-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    margin-top: 6px;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--rose-pale) 0%, var(--cream) 50%, rgba(184,149,106,0.1) 100%);
+    padding: 160px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: 'Love';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 300px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(196,133,106,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .cta-content { position: relative; z-index: 2; }
+
+  .cta-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    color: var(--rose);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .cta-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 200;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+  }
+
+  .cta-subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 2;
+    max-width: 480px;
+    margin: 0 auto 56px;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-large {
+    display: inline-block;
+    padding: 22px 64px;
+    background: var(--rose);
+    color: white;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-large::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .btn-large:hover::before { transform: translateX(0); }
+  .btn-large span { position: relative; z-index: 1; }
+
+  .cta-note {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    color: rgba(92,74,66,0.5);
+    letter-spacing: 0.1em;
+    margin-top: 28px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--rose-light);
+    letter-spacing: 0.2em;
+  }
+
+  .footer-copy {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── DIVIDER ── */
+  .ornament {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--rose-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 0.5em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav, .section-inner { padding-left: 24px; padding-right: 24px; }
+    .hero-content { padding: 40px 24px 60px; }
+    .scroll-indicator { padding-left: 24px; }
+    .promise-grid, .profile-grid { grid-template-columns: 1fr; gap: 48px; }
+    .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .promise-visual { height: 300px; }
+    .profile-stats { gap: 32px; }
+    footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+    .pain-list { grid-template-columns: 1fr; }
+    .hero-decoration { display: none; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <nav>
+    <div class="logo">Amour Coaching</div>
+    <div class="nav-line"></div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">For Women Who Deserve True Love</div>
+    <h1 class="hero-title">
+      身体の関係から<br>
+      <em>追われる女性</em>に——<br>
+      本当の愛を、<br>
+      手に入れてほしい。
+    </h1>
+    <p class="hero-subtitle">
+      「また同じことを繰り返してしまった」<br>
+      そう感じるあなたへ。<br>
+      あなたは変われます。もっと幸せになれます。
+    </p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn-primary"><span>無料相談を予約する</span></a>
+      <a href="#about" class="btn-secondary">詳しく見る</a>
+    </div>
+  </div>
+
+  <div class="hero-decoration">愛</div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════ PAIN ═══════ -->
+<section class="pain">
+  <div class="pain-bg"></div>
+  <div class="section-inner">
+    <div class="label">こんな悩みはありませんか</div>
+    <h2 class="pain-title reveal">
+      好きな人に<strong>「体目的」</strong>でしか<br>
+      見てもらえない気がする。
+    </h2>
+
+    <div class="pain-list">
+      <div class="pain-item reveal">
+        <div class="pain-num">01</div>
+        <p class="pain-text">好意を持った相手に<br>体の関係ばかり求められて、<br>恋人にはなれない</p>
+      </div>
+      <div class="pain-item reveal">
+        <div class="pain-num">02</div>
+        <p class="pain-text">「都合のいい女」に<br>なってしまいがちで、<br>断れない自分が嫌い</p>
+      </div>
+      <div class="pain-item reveal">
+        <div class="pain-num">03</div>
+        <p class="pain-text">本当は大切にされる<br>関係を望んでいるのに、<br>同じパターンを繰り返す</p>
+      </div>
+      <div class="pain-item reveal">
+        <div class="pain-num">04</div>
+        <p class="pain-text">自分に自信が持てず、<br>相手の要求を<br>断ることができない</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROMISE ═══════ -->
+<section class="promise" id="about">
+  <div class="section-inner">
+    <div class="promise-grid">
+      <div class="promise-visual">
+        <div class="promise-circle-1"></div>
+        <div class="promise-circle-2"></div>
+        <div class="promise-center-text">
+          <div class="big-word">True</div>
+        </div>
+      </div>
+
+      <div class="promise-content reveal">
+        <div class="label">私からの約束</div>
+        <h2 class="promise-title">
+          あなたが変わる必要は<br>
+          ありません。<br>
+          ただ、<em style="color:var(--rose);font-style:italic;font-family:'Cormorant Garamond',serif">正しい方向</em>を<br>
+          知るだけでいい。
+        </h2>
+        <p class="promise-body">
+          恋愛のパターンは、育ってきた環境や過去の経験から自然と形成されるものです。「また同じことを繰り返してしまう」のは、あなたの意志が弱いからではありません。<br><br>
+          このコーチングでは、あなたの心の奥にある「本当の望み」を一緒に見つけ、自分らしく愛される関係を築くためのサポートをします。
+        </p>
+        <a href="#cta" class="btn-primary"><span>まずは話を聞いてみる</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FEATURES ═══════ -->
+<section class="features">
+  <div class="section-inner">
+    <div class="features-header reveal">
+      <div class="label">プログラムの内容</div>
+      <h2 class="features-title">
+        本当に大切にされる<br>
+        恋愛を手に入れるために
+      </h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">✦</div>
+        <h3 class="feature-name">自己理解を深めるセッション</h3>
+        <p class="feature-desc">なぜ同じパターンを繰り返すのか。あなたの恋愛傾向と深層心理を丁寧に紐解きます。自分を知ることが、変化の第一歩です。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">◈</div>
+        <h3 class="feature-name">境界線（バウンダリー）の設定</h3>
+        <p class="feature-desc">自分の気持ちを大切にしながら、穏やかに「No」と言える力を育てます。罪悪感なく自分を守ることができるようになります。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">◇</div>
+        <h3 class="feature-name">自己肯定感を高めるワーク</h3>
+        <p class="feature-desc">「私はこのままでいい」と心から思えるようになるためのワーク。あなたの魅力に気づき、自信を持って恋愛できるようになります。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">❋</div>
+        <h3 class="feature-name">理想のパートナーシップ設計</h3>
+        <p class="feature-desc">あなたが本当に求めている関係を明確にし、それを実現するための具体的なアプローチ方法をご提案します。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">◉</div>
+        <h3 class="feature-name">コミュニケーション改善</h3>
+        <p class="feature-desc">相手に自分の気持ちを正直に、かつ魅力的に伝えるコミュニケーション術を実践的に学びます。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">✧</div>
+        <h3 class="feature-name">継続サポート・フォローアップ</h3>
+        <p class="feature-desc">セッション後もLINEでのサポートあり。日常の小さな変化も一緒に確認しながら、確実に前進できるよう伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="testimonials-header reveal">
+      <div class="label">お客様の声</div>
+      <h2 class="testimonials-title">
+        変わった女性たちの<br>リアルなストーリー
+      </h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">ずっと「都合のいい女」だったのに、コーチングを受けてから初めて「大切にしてくれる人」と出会えました。自分が変わると、引き寄せる人も変わるんだと実感しています。</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">A.K さん</div>
+            <div class="testimonial-age">28歳 / 会社員</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">「なぜ断れないのか」の理由が初めてわかりました。原因がわかると、すごく楽になって。今は自分の気持ちを素直に伝えられるようになっています。</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">M.T さん</div>
+            <div class="testimonial-age">32歳 / 看護師</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">同じ失敗を10年繰り返してきたのに、3ヶ月で本当に変われた。今の彼氏は初めて「一緒にいて安心できる」と思える人です。もっと早く相談すればよかった。</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Y</div>
+          <div>
+            <div class="testimonial-name">Y.S さん</div>
+            <div class="testimonial-age">35歳 / フリーランス</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROFILE ═══════ -->
+<section class="profile">
+  <div class="profile-bg"></div>
+  <div class="section-inner">
+    <div class="profile-grid">
+      <div class="profile-image-area reveal">
+        <div class="profile-frame">
+          <div class="profile-frame-inner">Coach</div>
+        </div>
+        <div class="profile-accent"></div>
+      </div>
+
+      <div class="profile-content reveal">
+        <div class="label">コーチについて</div>
+        <div class="profile-name">Takumi</div>
+        <div class="profile-title">恋愛・パートナーシップコーチ</div>
+        <p class="profile-bio">
+          「身体の関係でしか繋がれない」と感じていた女性たちと向き合い続けて6年。のべ300名以上の女性をサポートしてきました。<br><br>
+          心理学・愛着理論・コミュニケーション論をベースに、一人ひとりの根本原因にアプローチ。「また同じことを繰り返す」という苦しみのループから抜け出し、本当に大切にされる愛を手に入れるためのサポートをしています。
+        </p>
+        <div class="profile-stats">
+          <div class="stat-item">
+            <div class="stat-num">300<span style="font-size:24px">+</span></div>
+            <div class="stat-label">サポート実績</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">6</div>
+            <div class="stat-label">年の経験</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">94<span style="font-size:24px">%</span></div>
+            <div class="stat-label">満足度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section" id="cta">
+  <div class="cta-content">
+    <div class="cta-label">First Step</div>
+    <h2 class="cta-title">
+      まず、話してみてください。<br>
+      それだけでいい。
+    </h2>
+    <p class="cta-subtitle">
+      初回相談は無料です。<br>
+      変わることへの不安も、全部話してください。<br>
+      あなたのペースで、一緒に進んでいきましょう。
+    </p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-large"><span>無料相談を申し込む（30分）</span></a>
+    </div>
+    <div class="cta-note">※ 無料相談後の強引な勧誘は一切ございません</div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-logo">Amour Coaching</div>
+  <div class="footer-copy">© 2025 Amour Coaching. All rights reserved.</div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+  observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
