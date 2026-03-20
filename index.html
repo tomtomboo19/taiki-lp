@@ -759,12 +759,64 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero { padding: 60px 24px; }
-    .yameru, .pain, .placeholder-section, .testimonials, .profile, .cta-section { padding-left: 24px; padding-right: 24px; }
+    /* ── HERO ── */
+    .hero { padding: 72px 24px 60px; }
+    .hero-inner { text-align: center; }
+    .hero-main { font-size: clamp(26px, 8vw, 40px); }
+    .hero-sub { font-size: 12px; }
+    .hero-sub-large { font-size: clamp(16px, 4.5vw, 22px); }
+    .hero-title { gap: 16px; }
+    .hero-balloon { max-width: 100%; }
+    .hero-balloon p { font-size: 13px; }
+    .btn-primary { padding: 16px 36px; font-size: 13px; width: 100%; text-align: center; display: block; }
+
+    /* ── YAMERU ── */
+    .yameru { padding: 72px 24px; }
+    .yameru-title { font-size: clamp(22px, 6.5vw, 32px); }
+    .yameru-lead { font-size: 14px; }
+    .yameru-list li { font-size: 13px; padding: 14px 18px; }
+    .yameru-big { font-size: clamp(20px, 5.5vw, 28px); }
+    .yameru-highlight { font-size: clamp(15px, 4vw, 19px); }
+    .yameru-center { font-size: 14px; }
+
+    /* ── PAIN ── */
+    .pain { padding: 72px 24px; }
     .pain-list { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .profile-grid { grid-template-columns: 1fr; gap: 40px; }
-    footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+    .pain-heading { font-size: clamp(26px, 7vw, 40px); margin-bottom: 48px; }
+    .pain-item { padding: 28px 24px; }
+    .pain-num { font-size: 36px; }
+    .pain-text { font-size: 14px; }
+    .pain-bottom { padding: 28px 20px; }
+    .pain-bottom-text { font-size: 14px; }
+
+    /* ── PLACEHOLDER ── */
+    .placeholder-section { padding: 72px 24px; }
+    .section-title { font-size: clamp(22px, 6vw, 32px); }
+    .placeholder-box { padding: 48px 24px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 72px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonial-card { padding: 28px 20px; }
+
+    /* ── PROFILE ── */
+    .profile { padding: 72px 24px; }
+    .profile-grid { grid-template-columns: 1fr; gap: 36px; }
+    .profile-frame { max-width: 240px; margin: 0 auto; }
+    .profile-name { font-size: 40px; }
+    .profile-row { grid-template-columns: 70px 1fr; font-size: 12px; }
+    .profile-bio { font-size: 13px; }
+    .profile-label { font-size: 10px; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 80px 24px; }
+    .cta-title { font-size: clamp(22px, 6vw, 34px); }
+    .cta-sub { font-size: 13px; }
+    .btn-large { padding: 18px 32px; font-size: 14px; width: 100%; display: block; }
+
+    /* ── FOOTER ── */
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; gap: 12px; }
+    .footer-copy { font-size: 10px; }
   }
 </style>
 </head>
