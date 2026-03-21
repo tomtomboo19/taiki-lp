@@ -817,63 +817,181 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
+
     /* ── HERO ── */
-    .hero { padding: 72px 24px 60px; }
-    .hero-inner { text-align: center; }
-    .hero-main { font-size: clamp(26px, 8vw, 40px); }
-    .hero-sub { font-size: 12px; }
-    .hero-sub-large { font-size: clamp(16px, 4.5vw, 22px); }
-    .hero-title { gap: 16px; }
-    .hero-balloon { max-width: 100%; }
-    .hero-balloon p { font-size: 13px; }
-    .btn-primary { padding: 16px 36px; font-size: 13px; width: 100%; text-align: center; display: block; }
+    .hero {
+      padding: 72px 22px 56px;
+      min-height: 100svh;
+      align-items: center;
+    }
+    .hero-inner {
+      text-align: center;
+      max-width: 100%;
+    }
+    .hero-title { gap: 14px; align-items: center; }
+    .hero-line { align-items: center; }
+    .hero-main { font-size: clamp(26px, 8vw, 40px); letter-spacing: 0.02em; }
+    .hero-sub { font-size: 12px; letter-spacing: 0.1em; margin-top: 2px; }
+    .hero-sub-large { font-size: clamp(16px, 4.8vw, 22px); margin-top: 4px; }
+    .hero-balloon {
+      max-width: 100%;
+      margin: 28px auto 0;
+      padding: 16px 18px;
+      text-align: left;
+    }
+    .hero-balloon p { font-size: 13px; line-height: 2; }
+    .hero-cta { margin-top: 32px !important; }
+    .btn-primary {
+      padding: 18px 0;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+      display: block;
+      letter-spacing: 0.15em;
+    }
 
     /* ── YAMERU ── */
-    .yameru { padding: 72px 24px; }
-    .yameru-title { font-size: clamp(22px, 6.5vw, 32px); }
-    .yameru-lead { font-size: 14px; }
-    .yameru-list li { font-size: 13px; padding: 14px 18px; }
-    .yameru-big { font-size: clamp(20px, 5.5vw, 28px); }
-    .yameru-highlight { font-size: clamp(15px, 4vw, 19px); }
-    .yameru-center { font-size: 14px; }
+    .yameru { padding: 64px 22px; }
+    .yameru-inner { max-width: 100%; }
+    .yameru-title {
+      font-size: clamp(21px, 6vw, 28px);
+      margin-bottom: 32px;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .yameru-lead {
+      font-size: 14px;
+      text-align: left;
+      line-height: 2.1;
+    }
+    .yameru-list { gap: 10px; margin-top: 20px !important; }
+    .yameru-list li {
+      font-size: 13px;
+      padding: 14px 16px;
+      line-height: 1.85;
+    }
+    .yameru-center {
+      font-size: 14px;
+      margin-top: 28px;
+      text-align: center;
+    }
+    .yameru-big { font-size: clamp(20px, 5.5vw, 26px); }
+    .yameru-highlight {
+      font-size: clamp(14px, 4vw, 18px);
+      text-align: center;
+      margin-top: 16px;
+    }
 
     /* ── PAIN ── */
-    .pain { padding: 72px 24px; }
-    .pain-list { grid-template-columns: 1fr; }
-    .pain-heading { font-size: clamp(26px, 7vw, 40px); margin-bottom: 48px; }
-    .pain-item { padding: 28px 24px; }
-    .pain-num { font-size: 36px; }
-    .pain-text { font-size: 14px; }
-    .pain-bottom { padding: 28px 20px; }
-    .pain-bottom-text { font-size: 14px; }
+    .pain { padding: 64px 22px; }
+    .pain-heading {
+      font-size: clamp(24px, 7vw, 36px);
+      margin-bottom: 40px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .pain-sub { font-size: 12px; margin-bottom: 36px; }
+    .pain-list { grid-template-columns: 1fr; gap: 2px; }
+    .pain-item { padding: 24px 20px; }
+    .pain-num { font-size: 32px; margin-bottom: 10px; }
+    .pain-text { font-size: 14px; line-height: 1.95; }
+    .pain-bottom { padding: 24px 18px; margin-top: 28px; }
+    .pain-bottom-text { font-size: 13px; line-height: 2.1; }
 
-    /* ── PLACEHOLDER ── */
-    .placeholder-section { padding: 72px 24px; }
-    .section-title { font-size: clamp(22px, 6vw, 32px); }
-    .placeholder-box { padding: 48px 24px; }
+    /* ── PLACEHOLDER / TYPE SECTIONS ── */
+    .placeholder-section { padding: 64px 22px; }
+    .placeholder-inner { max-width: 100%; }
+    .section-title {
+      font-size: clamp(20px, 5.5vw, 26px);
+      margin-bottom: 28px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .placeholder-box { padding: 44px 20px; }
 
-    /* ── TESTIMONIALS ── */
-    .testimonials { padding: 72px 24px; }
-    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
-    .testimonial-card { padding: 28px 20px; }
+    /* タイプ画像：スマホは1列 */
+    .placeholder-inner div[style*="grid-template-columns:repeat(2,1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+
+    /* ── 実際に受け取った方の声 ── */
+    .testimonials { padding: 64px 22px; }
+    .voice-card { padding: 12px; border-radius: 12px; }
+    .voice-tag { font-size: 11px; padding: 5px 12px; }
+    .voice-info { margin-top: 8px; padding-top: 8px; gap: 8px; }
+    .voice-age { font-size: 11px; }
+    .voice-name { font-size: 12px; }
+
+    /* 声グリッド：スマホは1列 */
+    .testimonials-inner div[style*="grid-template-columns:repeat(2,1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
 
     /* ── PROFILE ── */
-    .profile { padding: 72px 24px; }
-    .profile-grid { grid-template-columns: 1fr; gap: 36px; }
-    .profile-frame { max-width: 240px; margin: 0 auto; }
-    .profile-name { font-size: 40px; }
-    .profile-row { grid-template-columns: 70px 1fr; font-size: 12px; }
-    .profile-bio { font-size: 13px; }
-    .profile-label { font-size: 10px; }
+    .profile { padding: 64px 22px; }
+    .profile-inner { max-width: 100%; }
+    .profile-label { font-size: 10px; margin-bottom: 28px; }
+    .profile-grid { grid-template-columns: 1fr; gap: 28px; }
+    .profile-frame { max-width: 180px; margin: 0 auto; }
+    .profile-name { font-size: 36px; text-align: center; }
+    .profile-role { font-size: 11px; text-align: center; margin-bottom: 24px; letter-spacing: 0.15em; }
+    .profile-table { margin-bottom: 20px; }
+    .profile-row {
+      grid-template-columns: 64px 1fr;
+      font-size: 12px;
+      padding: 12px 0;
+      gap: 10px;
+    }
+    .profile-bio { font-size: 13px; line-height: 2.2; }
+    .profile-row-value span[style*="rose-light"] { font-size: 14px !important; }
+
+    /* 自己紹介内のボックスとボタン */
+    .profile-inner div[style*="padding: 28px 32px"] {
+      padding: 20px 18px !important;
+      margin: 18px 0 !important;
+    }
+    .profile-inner div[style*="padding: 28px 32px"] p {
+      font-size: clamp(14px, 4vw, 18px) !important;
+      line-height: 1.9 !important;
+    }
+    .profile-inner p[style*="font-size:15px"] {
+      font-size: 13px !important;
+    }
+    .profile-inner .btn-primary {
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding: 16px 0;
+    }
 
     /* ── CTA ── */
-    .cta-section { padding: 80px 24px; }
-    .cta-title { font-size: clamp(22px, 6vw, 34px); }
-    .cta-sub { font-size: 13px; }
-    .btn-large { padding: 18px 32px; font-size: 14px; width: 100%; display: block; }
+    .cta-section { padding: 72px 22px; }
+    .cta-section::before { font-size: 140px; }
+    .cta-inner { max-width: 100%; }
+    .cta-title {
+      font-size: clamp(21px, 6vw, 30px);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .cta-sub { font-size: 13px; line-height: 2.1; margin-bottom: 32px; }
+    .btn-large {
+      padding: 20px 0;
+      font-size: 14px;
+      width: 100%;
+      display: block;
+      letter-spacing: 0.12em;
+    }
+    .cta-note { font-size: 11px; margin-top: 18px; }
 
     /* ── FOOTER ── */
-    footer { padding: 32px 24px; flex-direction: column; text-align: center; gap: 12px; }
+    footer {
+      padding: 28px 22px;
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
     .footer-copy { font-size: 10px; }
   }
 </style>
@@ -904,7 +1022,7 @@
     </h1>
 
     <div class="hero-balloon reveal">
-      <p>今好きな彼の『都合の良い女』に<br>なっていると感じたことある方<br>は必ず最後まで読んでください!!</p>
+      <p>今好きな彼の『都合の良い女』に<br>なっていると感じたことある方は<br>必ず最後まで読んでください!!</p>
     </div>
 
     <div class="hero-cta" style="margin-top:48px;">
@@ -923,7 +1041,7 @@
 
     <div class="yameru-lead reveal">
       <p>今日で恋愛で悩む人生は<br><strong>過去に捨て去り</strong></p>
-      <p style="margin-top:20px;">これから、<span class="yameru-accent">幸せになれる恋愛人生</span>を歩むための第一歩を<br>一緒に踏み出しませんか？</p>
+      <p style="margin-top:20px;">これから、<span class="yameru-accent">幸せになれる恋愛人生</span>を歩むための<br>第一歩を一緒に踏み出しませんか？</p>
       <p style="margin-top:20px;">その一歩を踏み出した先には</p>
     </div>
 
